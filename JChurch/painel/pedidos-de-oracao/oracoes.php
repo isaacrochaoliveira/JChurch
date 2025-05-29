@@ -13,6 +13,7 @@ if (count($res) > 0) {
     <div class="d-flex flex-wrap flex-row">
         <?php
         for ($i = 0; $i < count($res); $i++) {
+            $id_mo = $res[$i]['id_mo'];
         ?>
             <div class="modal fade" id="VerVideos<?= $id_mo ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">
@@ -133,7 +134,11 @@ if (count($res) > 0) {
                 $nome_mem = $res_2[0]['nome_mem'];
             }
 
-
+            $sql_3 = $pdo->query("SELECT * FROM membro WHERE id_usuario = '$_SESSION[id]'");
+            $res_3 = $sql_3->fetchAll(PDO::FETCH_ASSOC);
+            if (count($res_3) > 0) {
+                $id_membroLog = $res_3[0]['id_membro'];
+            }
 
             switch ($status) {
                 case '0 - Pedido Inativo':
@@ -256,22 +261,23 @@ if (count($res) > 0) {
                             <option value="4 - Pedido Cancelado">4 - Pedido Cancelado</option>
                         </select>
                         <div class="d-flex flex-wrap">
-                            <button class="btn py-2 px-3" onclick="le(<?php echo $id_mo ?>, 'add')" style="background-color: #370b5c; color: white; border-radius: 0px;">
-                                <?php
-                                $sql_3 = $pdo->query("SELECT * FROM le_pedidos WHERE id_mo = '$id_mo' AND id_membro = '$id_membroLog'");
-                                $res_3 = $sql_3->fetchAll(PDO::FETCH_ASSOC);
-                                if (count($res_3) > 0) {
-                                ?>
+                            <?php
+                            $sql_3 = $pdo->query("SELECT * FROM le_pedidos WHERE id_mo = '$id_mo' AND id_membro = '$id_membroLog'");
+                            $res_3 = $sql_3->fetchAll(PDO::FETCH_ASSOC);
+                            if (count($res_3) > 0) {
+                            ?>
+                                <button class="btn py-2 px-3" onclick="le(<?php echo $id_mo ?>, 'exc')" style="background-color: #370b5c; color: white; border-radius: 0px;">
                                     <i class="fa-solid fa-bookmark"></i>
-                                <?php
-                                } else {
-                                    echo $id_membro;
+                                </button>
+                            <?php
+                            } else {
                                 ?>
+                                <button class="btn py-2 px-3" onclick="le(<?php echo $id_mo ?>, 'add')" style="background-color: #370b5c; color: white; border-radius: 0px;">
                                     <i class="fa-regular fa-bookmark"></i>
-                                <?php
-                                }
-                                ?>
-                            </button>
+                                </button>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

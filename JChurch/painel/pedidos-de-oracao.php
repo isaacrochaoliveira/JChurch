@@ -59,11 +59,11 @@ $id_membro = $res[0]['id_membro'];
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Oração Adicionada as Especias! Você deseja ir para Orações Especias ou ficar nessa?
-                    <p><strong>Em <i class="contagem_le">9</i> Segundos</strong> <i class="fa-solid fa-spinner fa-spin-pulse"></i></p>
-                </p>
+                <div class="seconds-question">
+
+                </div>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-primary mx-3" onclick="location.href='pedidos-de-oracao/especiais.php'">Ir para Especiais</button>
+                    <button type="button" class="btn btn-outline-primary mx-3" onclick="location.href='inde'">Ir para Especiais</button>
                     <button type="button" class="btn btn-outline-secondary" onclick="location.reload()">Ficar Aqui</button>
                 </div>
             </div>
@@ -244,8 +244,8 @@ $id_membro = $res[0]['id_membro'];
 </script>
 
 <script>
-    function le(id_mo, acao = 'del') {
-        if (acao === 'add') {
+    function le(id_mo, acao) {
+        if (acao == 'add') {
             $.ajax({
                 url: 'pedidos-de-oracao/le_pedidos_add.php',
                 method: 'post',
@@ -254,6 +254,8 @@ $id_membro = $res[0]['id_membro'];
                 },
                 success: function(msg) {
                     $('#LeModal').modal('show');
+                    $('#LeModal').modal('show');
+                    $('#LeModal .seconds-question').html('Oração Adicionada as Especiais! Você deseja ir para a lista de pedidos ou ficar nessa? <p><strong>Em <i class="contagem_le">9</i> Segundos</strong> <i class="fa-solid fa-spinner fa-spin-pulse"></i></p>');
                     FiveSeconds();
                 }
             });
@@ -266,7 +268,7 @@ $id_membro = $res[0]['id_membro'];
                 },
                 success: function(msg) {
                     $('#LeModal').modal('show');
-                    $('#LeModal .modal-body').html('Oração Removida das Especiais! Você deseja ir para a lista de pedidos ou ficar nessa? <p><strong>Em <i class="contagem_le">9</i> Segundos</strong> <i class="fa-solid fa-spinner fa-spin-pulse"></i></p>');
+                    $('#LeModal .seconds-question').html('Oração Removida das Especiais! Você deseja ir para a lista de pedidos ou ficar nessa? <p><strong>Em <i class="contagem_le">9</i> Segundos</strong> <i class="fa-solid fa-spinner fa-spin-pulse"></i></p>');
                     FiveSeconds();
                 }
             });
