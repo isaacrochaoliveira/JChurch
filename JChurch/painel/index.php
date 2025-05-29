@@ -8,6 +8,7 @@ $pag1 = 'membros';
 $pag2 = 'editar-perfil';
 $pag3 = 'publicacoes';
 $pag4 = 'pedidos-de-oracao';
+$pag5 = 'pedidos-salvos';
 
 
 ?>
@@ -114,6 +115,8 @@ $pag4 = 'pedidos-de-oracao';
         @include_once($pag3 . '.php');
     } else if (@$pag == $pag4) {
         @include_once($pag4 . '.php');
+    } else if (@$pag == $pag5) {
+        @include_once($pag5 . '.php');
     } else {
     ?>
         <section>

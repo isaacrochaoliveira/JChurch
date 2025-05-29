@@ -63,7 +63,7 @@ $id_membro = $res[0]['id_membro'];
 
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-primary mx-3" onclick="location.href='inde'">Ir para Especiais</button>
+                    <button type="button" class="btn btn-outline-primary mx-3" onclick="location.href='index.php?pag=pedidos-salvos'">Ir para Especiais</button>
                     <button type="button" class="btn btn-outline-secondary" onclick="location.reload()">Ficar Aqui</button>
                 </div>
             </div>

@@ -158,7 +158,7 @@ if (count($res) > 0) {
                     break;
             }
             ?>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card" style="width: 28rem;">
                     <?php
                     if ($_SESSION['id'] != $id_usuario) {
