@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+* {
+    font-family: 'Josefin';
+}
+
+/* FONT */
+
+.f-18px {
+    font-size: 18px;
+}
+
+.f-24px {
+    font-size: 24px;
+}
+
+
+/* CABEÇALHO */
+
+.container header .fs-4 {
+    font-family: 'Berkshire';
+}
+
+/* WIDGETS */
+
+.container .card .card-footer {
+    font-size: 10px;
+    color: white;
+}
+
+.container .card .card-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+/* SESSÃO PUBLICAÇÕES */
+
+.layout .full-banner .banner-text {
+    font-family: 'Berkshire';
+    color: white;
+    text-align: center;
+}
+
+
+.layout .full-banner .banner-text h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.layout .full-banner .banner-text p {
+    font-size: 1.5rem;
+}
+
+.layout .sessao-perfil {
+    background: rgb(238, 238, 238);
+    padding: 50px 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}

@@ -1,0 +1,87 @@
+#titulo {
+    font-family: 'Berkshire';
+    font-weight: 800;
+    font-size: 100px;
+}
+
+#conteudo {
+    font-family: 'Josefin';
+    font-weight: 400;
+    font-size: 28px;
+}
+
+#secao_comeco {
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../img/background_blur.jpg') no-repeat;
+    padding: 250px 0px 250px 0px;
+    background-attachment: fixed;
+    color:white;
+    text-align: center;
+} 
+
+#secao_comeco button {
+    padding: 10px 25px 10px 25px;
+    margin: 0px 10px 0px 10px;
+}
+
+#secao_comeco button:hover {
+    background-color: #7D7D7C;
+}
+
+#secao_comeco button a {
+    text-decoration: none;
+    color: black;
+}
+
+#secao_comeco button a:hover {
+    color: white
+}
+
+#secao_comeco h3 {
+    text-transform: uppercase;
+    margin-top: 12px;
+    font-size: 45px
+}
+
+#secao_comeco h1 {
+    font-size: 50px;
+}
+
+
+#secao_cadastro {
+    padding: 20px;
+}
+
+#secao_cadastro div.flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#secao_cadastro div.flex div.imgs {
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("../img/jesus.jpg") no-repeat;
+    background-size: cover;
+    padding: 300px 0px;
+}
+
+#secao_cadastro .form form .form-group {
+    padding: 20px 10px 20px 10px;
+    margin: 10px 0px 10px 0px;
+}
+
+
+#secao_cadastro div.form {
+    border: 2px solid #ccc;
+    padding: 0px 10px;
+    align-content: center;
+} 
+
+#secao_cadastro div.form h4 {
+    font-family: 'Josefin';
+    font-size: 30px;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    padding: 7px 38px;
+}
