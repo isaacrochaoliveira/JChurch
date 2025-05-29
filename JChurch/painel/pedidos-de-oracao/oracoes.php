@@ -9,106 +9,108 @@ $id_membro = $_POST['id_membro'];
 $sql = $pdo->query("SELECT * FROM minhas_oracoes ORDER BY id_mo DESC");
 $res = $sql->fetchAll(PDO::FETCH_ASSOC);
 if (count($res) > 0) {
-    for ($i = 0; $i < count($res); $i++) {
-        $id_mo = $res[$i]['id_mo'];
-        if ($i % 2 == 0) {
-            $display_reverse = 'flex-row-reverse';
-        } else {
-            $display_reverse = 'flex-row';
-        }
 ?>
-        <div class="d-flex flex-wrap <?= $display_reverse ?> py-5 justify-content-center">
-            <div class="col-md-9 text-center">
-                <?php
-                if (($res[$i]['link_video1'] <> '') || ($res[$i]['link_video2'] <> '') || ($res[$i]['link_video3'] <> '')) {
-                    @$video1 = $res[$i]['link_video1'];
-                    @$video2 = $res[$i]['link_video2'];
-                    @$video3 = $res[$i]['link_video3'];
-
-                    if ($video1 <> "") {
-                        $tot_videos += 1;
-                    }
-                    if ($video2 <> "") {
-                        $tot_videos += 1;
-                    }
-                    if ($video3 <> "") {
-                        $tot_videos += 1;
-                    }
-
-                    @$titulo1 = $res[$i]['titulo_video1'];
-                    @$titulo2 = $res[$i]['titulo_video2'];
-                    @$titulo3 = $res[$i]['titulo_video3'];
-
-                    @$link1 = explode('watch?v=', $video1);
-                    @$video1_embed = $link1[0] . 'embed/' . $link1[1];
-
-                    @$link2 = explode('watch?v=', $video2);
-                    @$video2_embed = $link2[0] . 'embed/' . $link2[1];
-
-                    @$link3 = explode('watch?v=', $video3);
-                    @$video3_embed = $link3[0] . 'embed/' . $link3[1];
-
-
-                ?>
-                    <div id="carouselExampleCaptions<?= $id_mo ?>" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <div class="d-flex flex-wrap flex-row">
+        <?php
+        for ($i = 0; $i < count($res); $i++) {
+        ?>
+            <div class="modal fade" id="VerVideos<?= $id_mo ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Versículo</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <iframe width="1080" height="650"
-                                    src="<?php echo $video1_embed ?>"
-                                    title="YouTube video player" frameborder="1"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-                                </iframe>
-                                <div class="carousel-caption d-none d-md-block" style="background: linear-gradient(to left, rgb(255, 255, 255), rgba(179, 179, 179, 0.8)); color: black">
-                                    <h5><?php echo $titulo1 ?></h5>
-                                    <a href="<?php echo $video1 ?>" target="_blank"><?php echo $video1 ?></a>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <iframe width="1380" height="800"
-                                    src="<?php echo $video2_embed ?>"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-                                </iframe>
-                                <div class="carousel-caption d-none d-md-block" style="background: linear-gradient(to left, rgb(255, 255, 255), rgba(179, 179, 179, 0.8)); color: black">
-                                    <h5><?php echo $titulo2 ?></h5>
-                                    <a href="<?php echo $video2 ?>" target="_blank"><?php echo $video2 ?></a>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <iframe width="1380" height="800"
-                                    src="<?php echo $video3_embed ?>"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-                                </iframe>
-                                <div class="carousel-caption d-none d-md-block" style="background: linear-gradient(to left, rgb(255, 255, 255), rgba(179, 179, 179, 0.8)); color: black">
-                                    <h5><?php echo $titulo3 ?></h5>
-                                    <a href="<?php echo $video3 ?>" target="_blank"><?php echo $video3 ?></a>
-                                </div>
+                        <div class="modal-body">
+                            <div class="bg-dark" style="height: 100%;">
+                                <?php
+                                if (($res[$i]['link_video1'] <> '') || ($res[$i]['link_video2'] <> '') || ($res[$i]['link_video3'] <> '')) {
+                                    @$video1 = $res[$i]['link_video1'];
+                                    @$video2 = $res[$i]['link_video2'];
+                                    @$video3 = $res[$i]['link_video3'];
+                                    if ($video1 <> "") {
+                                        $tot_videos += 1;
+                                    }
+                                    if ($video2 <> "") {
+                                        $tot_videos += 1;
+                                    }
+                                    if ($video3 <> "") {
+                                        $tot_videos += 1;
+                                    }
+                                    @$titulo1 = $res[$i]['titulo_video1'];
+                                    @$titulo2 = $res[$i]['titulo_video2'];
+                                    @$titulo3 = $res[$i]['titulo_video3'];
+                                    @$link1 = explode('watch?v=', $video1);
+                                    @$video1_embed = $link1[0] . 'embed/' . $link1[1];
+                                    @$link2 = explode('watch?v=', $video2);
+                                    @$video2_embed = $link2[0] . 'embed/' . $link2[1];
+                                    @$link3 = explode('watch?v=', $video3);
+                                    @$video3_embed = $link3[0] . 'embed/' . $link3[1];
+                                ?>
+                                    <div id="carouselExampleCaptions<?= $id_mo ?>" class="carousel slide text-center" data-bs-ride="carousel" style="height: 100%; width: 100%">
+                                        <div class="carousel-indicators">
+                                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <iframe width="100%" height="850"
+                                                    src="<?php echo $video1_embed ?>"
+                                                    title="YouTube video player" frameborder="1"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                                                </iframe>
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5><?php echo $titulo1 ?></h5>
+                                                    <a href="<?php echo $video1 ?>" target="_blank"><?php echo $video1 ?></a>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <iframe width="100%" height="850"
+                                                    src="<?php echo $video2_embed ?>"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                                                </iframe>
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5><?php echo $titulo2 ?></h5>
+                                                    <a href="<?php echo $video2 ?>" target="_blank"><?php echo $video2 ?></a>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <iframe width="100%" height="850"
+                                                    src="<?php echo $video3_embed ?>"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                                                </iframe>
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5><?php echo $titulo3 ?></h5>
+                                                    <a href="<?php echo $video3 ?>" target="_blank"><?php echo $video3 ?></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions<?= $id_mo ?>" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions<?= $id_mo ?>" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                <?php
+                                } else {
+                                    echo "<h3>Vídeos Nâo Incluídos ou não Encontrados!";
+                                }
+                                ?>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions<?= $id_mo ?>" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions<?= $id_mo ?>" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
                     </div>
-
-                <?php
-                } else {
-                    echo "<h3>Vídeos Nâo Incluídos ou não Encontrados!";
-                }
-                ?>
+                </div>
             </div>
             <?php
-
             $titulo = $res[$i]['titulo'];
             $pedido = $res[$i]['txt_mo'];
             $data = date('d/m/Y', strtotime($res[$i]['data']));
@@ -151,7 +153,7 @@ if (count($res) > 0) {
                     break;
             }
             ?>
-            <div class="d-flex">
+            <div class="col-md-4">
                 <div class="card" style="width: 28rem;">
                     <?php
                     if ($_SESSION['id'] != $id_usuario) {
@@ -238,7 +240,7 @@ if (count($res) > 0) {
                                 <div>
                                     Vídeos:
                                 </div>
-                                <div>
+                                <div data-bs-toggle="modal" data-bs-target="#VerVideos<?php echo $id_mo ?>">
                                     <?php echo $tot_videos ?> Vídeos de Ajuda
                                 </div>
                             </div>
@@ -274,10 +276,10 @@ if (count($res) > 0) {
                     </div>
                 </div>
             </div>
-        </div>
-    <?php
-    }
-    ?>
+        <?php
+        }
+        ?>
+    </div>
 <?php
 }
 ?>
