@@ -17,7 +17,7 @@ if (count($res) > 0) {
             $display_reverse = 'flex-row';
         }
 ?>
-        <div class="d-flex flex-wrap <?= $display_reverse ?> py-5">
+        <div class="d-flex flex-wrap <?= $display_reverse ?> py-5 justify-content-center">
             <div class="col-md-9 text-center">
                 <?php
                 if (($res[$i]['link_video1'] <> '') || ($res[$i]['link_video2'] <> '') || ($res[$i]['link_video3'] <> '')) {
@@ -58,7 +58,7 @@ if (count($res) > 0) {
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <iframe width="1380" height="800"
+                                <iframe width="1080" height="650"
                                     src="<?php echo $video1_embed ?>"
                                     title="YouTube video player" frameborder="1"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
