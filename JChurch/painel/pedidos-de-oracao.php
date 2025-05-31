@@ -13,7 +13,7 @@ $id_membro = $res[0]['id_membro'];
 <div class="d-flex flex-wrap justify-content-center py-3">
     <div>
         <button class="btn btn-primary py-2 px-5" onclick="$('#PedidoModalCadas').modal('show')"><i class="fa-solid fa-folder-plus"></i> Pedido</button>
-        <button class="btn btn-primary py-2 px-5"><i class="fa-solid fa-folder-plus"></i>Minha lista</button>
+        <button class="btn btn-primary py-2 px-5" onclick="location.href='index.php?pag=pedidos-salvos'"><i class="fa-solid fa-folder-plus"></i>Minha lista</button>
     </div>
 </div>
 <div class="oracoes">
