@@ -32,8 +32,12 @@ require_once('../config/conect.php');
 <script>
     $(document).ready(function() {
         $.ajax({
-            url: 'misterio-louvor/integrantes.php',
-            
+            url: 'ministerio-louvor/integrantes.php',
+            method: 'post',
+            data: {},
+            success: function(msg) {
+                $(".integrantes").html(msg);
+            }
         })
     })
 </script>
