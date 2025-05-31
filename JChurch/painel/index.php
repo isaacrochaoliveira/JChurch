@@ -9,6 +9,7 @@ $pag2 = 'editar-perfil';
 $pag3 = 'publicacoes';
 $pag4 = 'pedidos-de-oracao';
 $pag5 = 'pedidos-salvos';
+$pag6 = 'ministerio-louvor';
 
 
 ?>
@@ -48,7 +49,7 @@ $pag5 = 'pedidos-salvos';
                         </a>
                         <ul class="dropdown-menu bg-dark" style="width: 250px;">
                             <li>
-                                <a href="#" class="nav-link px-2 text-white">Ministério de Louvor</a>
+                                <a href="index.php?pag=<?php echo $pag6?>" class="nav-link px-2 text-white">Ministério de Louvor</a>
                             </li>
                             <li>
                                 <a href="#" class="nav-link px-2 text-white">Grupos de Irmãs</a>
@@ -117,6 +118,8 @@ $pag5 = 'pedidos-salvos';
         @include_once($pag4 . '.php');
     } else if (@$pag == $pag5) {
         @include_once($pag5 . '.php');
+    } else if (@$pag == $pag6) {
+        @include_once($pag6 . '.php');
     } else {
     ?>
         <section>
