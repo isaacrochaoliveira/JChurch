@@ -17,7 +17,7 @@ if (count($res) > 0) {
 </section>
 
 <div class="container">
-    <div class="d-flex flex-wrap flex-row py-5">
+    <div class="d-flex flex-wrap py-5">
         <?php
         $sql = $pdo->query("SELECT * FROM le_pedidos WHERE id_membro = '$id_membro'");
         $res = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -33,34 +33,39 @@ if (count($res) > 0) {
                     $res_mem = $sql_mem->fetchAll(PDO::FETCH_ASSOC);
                     $foto = $res_mem[0]['foto_mem'];
                     $nome = $res_mem[0]['nome_mem'];
+
+                    $nasc = implode('/', array_reverse(explode('-', $res_mem[0]['nasc_mem'])));
+
+                    $ano = explode('/', $nasc);
+                    $idade = date('Y') - $ano[2];
                 }
         ?>
                 <style>
-                    .card-le {
-                        width: 30rem;
+                    .card {
+                        width: 16rem;
+                        border: 2px solid black;
                     }
 
-                    .card-le .le_in<?= $id_le ?> {
+                    .card .le_in<?= $id_le ?> {
                         display: none;
                     }
 
-                    .card-le:hover img {
+                    .card:hover img {
                         cursor: pointer;
                         opacity: 0.6;
                         border-radius: 50px;
                     }
 
-                    .card-le:hover .le_in<?= $id_le ?> {
+                    .card:hover .le_in<?= $id_le ?> {
                         display: block;
                     }
                 </style>
-                <div class="col-md-6">
-                    <div class="card-le d-flex flex-wrap flex-row">
-                        <div class="col-md-6">
-                            <img src="imagens/<?php echo $foto ?>" class="card-img-top" alt="...">
-                        </div>
-                        <div class="le_in<?= $id_le ?> col-md-6">
-                            <p><?php echo $nome_mem?></p>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="imagens/<?php echo $foto ?>" class="card-img-top" alt="...">
+                        <div class="card-body le_in<?= $id_le ?> ">
+                            <p><?php echo $nome?> - <?php echo $idade?> Anos</p>
+                            <hr>
                         </div>
                     </div>
                 </div>
