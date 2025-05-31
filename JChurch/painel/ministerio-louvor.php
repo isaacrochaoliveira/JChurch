@@ -22,6 +22,18 @@ require_once('../config/conect.php');
 </section>
 <section class="container py-5">
     <div>
-        <h3>Integrantes do Ministério: </h3>
+        <h3>Integrantes do Ministério:</h3>
+    </div>
+    <div class="integrantes">
+
     </div>
 </section>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: 'misterio-louvor/integrantes.php',
+            
+        })
+    })
+</script>
