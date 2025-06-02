@@ -15,19 +15,26 @@ require_once('../config/conect.php');
     } section p.icons {
         font-size: 50px;
     }
+    main {
+        background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('imagens/fundo_black.jpg');
+        color: white;
+    }
 </style>
 <section id="header">
     <h1>Ministério de Louvor</h1>
     <p class="icons"><?php echo "\u{1F3B6}"?> <?php echo "\u{1F3B9}"?> <?php echo "\u{1F3BA}"?></p>
 </section>
-<section class="container py-5">
-    <div>
-        <h3>Integrantes do Ministério:</h3>
-    </div>
-    <div class="integrantes">
+<main class="py-5">
+    <section>
+        <h3 class="text-center berkshire">Integrantes do Ministério:</h3>
+        <div class="integrantes">
+    
+        </div>
+    </section>
+    <section class="musicas-lista">
 
-    </div>
-</section>
+    </section>
+</main>
 
 <script>
     $(document).ready(function() {
@@ -40,4 +47,17 @@ require_once('../config/conect.php');
             }
         })
     })
+</script>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: 'ministerio-louvor/musicas.php',
+            method: 'post',
+            data: {},
+            success: function(msg) {
+                $('.musicas-lista').html(msg);
+            }
+        })
+    });
 </script>
