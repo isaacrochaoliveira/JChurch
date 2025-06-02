@@ -11,6 +11,9 @@ $pag4 = 'pedidos-de-oracao';
 $pag5 = 'pedidos-salvos';
 $pag6 = 'ministerio-louvor';
 
+$sql = $pdo->query("SELECT * FROM membro WHERE id_usuario = '$_SESSION[id]'");
+$res = $sql->fetchAll(PDO::FETCH_ASSOC);
+$id_membro = $res[0]['id_membro'];
 
 ?>
 <!DOCTYPE html>
@@ -100,8 +103,10 @@ $pag6 = 'ministerio-louvor';
                 </div>
                 <div class="col-md-11 my-auto">
                     <strong>
-                        <h6><?= $nome ?></h6>
-                        <h6><?php echo $cargo?></h6>
+                        <a href="index.php?pag=publicacoes&id_membro=<?php echo $id_membro ?>">
+                            <h6><?= $nome ?></h6>
+                            <h6><?php echo $cargo?></h6>
+                        </a>
                     </strong>
                 </div>
             </div>
