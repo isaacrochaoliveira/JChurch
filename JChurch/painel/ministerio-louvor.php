@@ -12,13 +12,13 @@ require_once('../config/conect.php');
         color: white;
     } section h1 {
         border-bottom: 3px solid white;
-    } section p {
+    } section p.icons {
         font-size: 50px;
     }
 </style>
 <section id="header">
     <h1>Ministério de Louvor</h1>
-    <p><?php echo "\u{1F3B6}"?> <?php echo "\u{1F3B9}"?> <?php echo "\u{1F3BA}"?></p>
+    <p class="icons"><?php echo "\u{1F3B6}"?> <?php echo "\u{1F3B9}"?> <?php echo "\u{1F3BA}"?></p>
 </section>
 <section class="container py-5">
     <div>
