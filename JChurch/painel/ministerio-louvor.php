@@ -31,8 +31,18 @@ require_once('../config/conect.php');
     
         </div>
     </section>
-    <section class="musicas-lista">
-
+    <section class="d-flex flex-wrap ">
+        <div class="col-md-6 musicas-lista"></div>
+        <div class="col-dm-6 mx-auto text-center">
+            <h3>Alguma sugestão de música?</h3>
+            <p>Coloque ela aqui, vamos analisar sua sugestão</p>
+            <form action="mx-auto">
+                <div class="form-group">
+                    <label for="nome_musica">Nome da Música</label>
+                    <input type="text" name="nome_musica" id="nome_musica" class="form-control">
+                </div>
+            </form>
+        </div>
     </section>
 </main>
 
