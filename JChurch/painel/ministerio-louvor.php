@@ -41,6 +41,9 @@ require_once('../config/conect.php');
                     <label for="nome_musica">Nome da Música</label>
                     <input type="text" name="nome_musica" id="nome_musica" class="form-control">
                 </div>
+                <div class="form-group">
+                    <input type="submit" value="Enviar Sugestão" class="btn btn-success">
+                </div>
             </form>
         </div>
     </section>
