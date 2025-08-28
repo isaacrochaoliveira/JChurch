@@ -41,7 +41,7 @@ require_once('../config/conect.php');
             </button>
         </div>
     </section>
-    <div class="modal fade" id="PlayListModal"data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="PlayListModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -89,14 +89,19 @@ require_once('../config/conect.php');
 
 <script>
     $(document).ready(function() {
-        var data = $('#FormSuges').serialize();
-        $.ajax({
-            url: 'ministerio-louvor/inserir-sugestao.php',
-            method: 'post',
-            data: {data},
-            success: function(msg) {
-                alert(msg)
-            }
-        })
+        $('#FormSuges').submit(function(event) {
+            event.preventDefault();
+            var data = new FormData(this);
+            $.ajax({
+                url: 'ministerio-louvor/inserir-sugestao.php',
+                method: 'post',
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(msg) {
+                    alert(msg)
+                }
+            })
+        });
     });
 </script>
