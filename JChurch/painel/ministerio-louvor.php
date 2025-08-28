@@ -17,12 +17,20 @@ require_once('../config/conect.php');
     </section>
     <section class="d-flex flex-wrap ">
         <div class="col-dm-6 mx-auto text-center">
-            <h3>Alguma sugestão de música?</h3>
+            <h2 class="f-60px">Alguma sugestão de música?</h2>
             <p>Coloque ela aqui, vamos analisar sua sugestão</p>
-            <form action="mx-auto">
+            <form method="post" class="mb-4" id="FormSuges">
                 <div class="form-group">
                     <label for="nome_musica">Nome da Música</label>
                     <input type="text" name="nome_musica" id="nome_musica" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="author_musica">Autor da Música</label>
+                    <input type="text" name="author_musica" id="author_musica" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="duracao_musica">Duração da Música</label>
+                    <input type="text" name="duracao_musica" id="duracao_musica" class="form-control">
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Enviar Sugestão" class="btn btn-success py-3 px-5">
@@ -33,11 +41,11 @@ require_once('../config/conect.php');
             </button>
         </div>
     </section>
-    <div class="modal fade" id="PlayListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="PlayListModal"data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">PlayList</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Playlist</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -46,8 +54,7 @@ require_once('../config/conect.php');
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
@@ -75,6 +82,20 @@ require_once('../config/conect.php');
             data: {},
             success: function(msg) {
                 $('.musicas-lista').html(msg);
+            }
+        })
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        var data = $('#FormSuges').serialize();
+        $.ajax({
+            url: 'ministerio-louvor/inserir-sugestao.php',
+            method: 'post',
+            data: {data},
+            success: function(msg) {
+                alert(msg)
             }
         })
     });
