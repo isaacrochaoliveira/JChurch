@@ -1,38 +1,21 @@
-<?php 
+<?php
 require_once('../index_php/protect.php');
 require_once('../config/conect.php');
 ?>
 <style>
-    section#header {
-        background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.8)), url('imagens/celebration.jpg') no-repeat;
-        padding: 250px 150px;
-        background-position: center;
-        background-size: cover;
-        text-align: center;
-        color: white;
-    } section h1 {
-        border-bottom: 3px solid white;
-    } section p.icons {
-        font-size: 50px;
-    }
     main {
-        background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('imagens/fundo_black.jpg');
+        background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('imagens/fundo_black.jpg') fixed;
         color: white;
     }
 </style>
-<section id="header">
-    <h1>Ministério de Louvor</h1>
-    <p class="icons"><?php echo "\u{1F3B6}"?> <?php echo "\u{1F3B9}"?> <?php echo "\u{1F3BA}"?></p>
-</section>
 <main class="py-5">
     <section>
-        <h3 class="text-center berkshire">Integrantes do Ministério:</h3>
+        <h1 class="text-center berkshire">Integrantes do Ministério:</h1>
         <div class="integrantes">
-    
+
         </div>
     </section>
     <section class="d-flex flex-wrap ">
-        <div class="col-md-6 musicas-lista"></div>
         <div class="col-dm-6 mx-auto text-center">
             <h3>Alguma sugestão de música?</h3>
             <p>Coloque ela aqui, vamos analisar sua sugestão</p>
@@ -42,11 +25,33 @@ require_once('../config/conect.php');
                     <input type="text" name="nome_musica" id="nome_musica" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Enviar Sugestão" class="btn btn-success">
+                    <input type="submit" value="Enviar Sugestão" class="btn btn-success py-3 px-5">
                 </div>
             </form>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PlayListModal">
+                Músicas na Lista do Ministério <i class="fa-solid fa-music"></i>
+            </button>
         </div>
     </section>
+    <div class="modal fade" id="PlayListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">PlayList</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-6 musicas-lista">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <script>
