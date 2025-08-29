@@ -6,18 +6,22 @@ require_once('../config/conect.php');
     main {
         background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('imagens/fundo_black.jpg') fixed;
         color: white;
+    } #FormSuges input {
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
     }
 </style>
 <main class="py-5">
     <section>
-        <h1 class="text-center berkshire">Integrantes do Ministério:</h1>
+        <h1 class="text-center berkshire f-60px">Integrantes do Ministério:</h1>
         <div class="integrantes">
 
         </div>
     </section>
     <section class="d-flex flex-wrap ">
         <div class="col-dm-6 mx-auto text-center">
-            <h2 class="f-60px">Alguma sugestão de música?</h2>
+            <h2 class="f-40px">Alguma sugestão de música?</h2>
             <p>Coloque ela aqui, vamos analisar sua sugestão</p>
             <form method="post" class="mb-4" id="FormSuges">
                 <div class="form-group">
