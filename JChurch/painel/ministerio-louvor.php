@@ -151,3 +151,25 @@ require_once('../config/conect.php');
         });
     });
 </script>
+
+<script>
+    function rejeitarSugestao(id) {
+        let confirma = confirm("Tem certeza que deseja rejeitar essa sugestão?");
+        if (confirma) {
+            $.ajax({
+                url: 'ministerio-louvor/rejeitar-sugestao.php',
+                method: 'post',
+                data: {
+                    id_sug: id
+                },
+                success: function(msg) {
+                    if (msg.trim() == 'Rejeitado com Sucesso!') {
+                        location.reload();
+                    } else {
+                        alert(msg);
+                    }
+                }
+            })
+        }
+    }
+</script>

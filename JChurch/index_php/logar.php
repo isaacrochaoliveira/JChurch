@@ -24,6 +24,7 @@ if (count($res) == 0) {
     if (password_verify($senha, $res[0]['senha'])) {
         $_SESSION['id'] = $res[0]['id_usuario'];
         $_SESSION['email'] = $res[0]['email'];
+        $_SESSION['posto'] = $res[0]['posto'];
 
         echo "Salvo com Sucesso!";
     }

@@ -13,7 +13,12 @@ if (count($res) > 0) {
                 <th scope="col">Título</th>
                 <th scope="col">Author</th>
                 <th scope="col">Ano de Lançamento</th>
-                <th scope="col">Satus</th>
+                <th scope="col">Status</th>
+                <?php 
+                    if ($_SESSION['posto'] == 'Chefe dos Levitas') {
+                        echo "<th scope='col'>Ações</th>";
+                    }
+                ?>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +43,17 @@ if (count($res) > 0) {
                     <td>
                         <span class="<?= $status_sug ?>">Pendente</span>
                     </td>
+                    <?php
+                    if ($_SESSION['posto'] == 'Chefe dos Levitas') {
+                        ?>
+                        <td>
+                            <button class='btn btn-success' title="Aprovar"><i class="fa-solid fa-square-check"></i></button>
+                            <button class='btn btn-danger' onclick="rejeitarSugestao(<?php echo $res[$i]['id_sug']; ?>)" title="Rejeitar"><i class="fa-solid fa-circle-xmark"></i></button>
+                            <button class='btn btn-primary' title="Analisar"><i class="fa-solid fa-question"></i></button>
+                        </td>
+                        <?php
+                    }
+                    ?>
                 </tr>
             <?php
             }
