@@ -33,15 +33,22 @@ require_once('../config/conect.php');
                     <input type="text" name="author_musica" id="author_musica" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="duracao_musica">Duração da Música</label>
-                    <input type="text" name="duracao_musica" id="duracao_musica" class="form-control">
+                    <label for="link_musica">Link da Música</label>
+                    <input type="text" name="link_musica" id="link_musica" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="ano_lanc_sub">Ano de Lançamento</label>
+                    <input type="text" name="ano_lanc_sub" id="ano_lanc_sub" class="form-control">
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Enviar Sugestão" class="btn btn-success py-3 px-5">
                 </div>
             </form>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PlayListModal">
+            <button type="button" class="btn btn-primary py-3 px-5" data-bs-toggle="modal" data-bs-target="#PlayListModal">
                 Músicas na Lista do Ministério <i class="fa-solid fa-music"></i>
+            </button>
+            <button type="button" class="btn btn-outline-primary py-3 px-5" data-bs-toggle="modal" data-bs-target="#SugesModal">
+                Músicas na Lista de Sugestão <i class="fa-solid fa-music"></i>
             </button>
         </div>
     </section>
@@ -53,7 +60,25 @@ require_once('../config/conect.php');
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="col-md-6 musicas-lista">
+                    <div class="col-md-12 musicas-lista">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="SugesModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Playlist</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 sugestao-lista">
 
                     </div>
                 </div>
@@ -93,6 +118,19 @@ require_once('../config/conect.php');
 
 <script>
     $(document).ready(function() {
+        $.ajax({
+            url: 'ministerio-louvor/sugestao.php',
+            method: 'post',
+            data: {},
+            success: function(msg) {
+                $('.sugestao-lista').html(msg);
+            }
+        })
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
         $('#FormSuges').submit(function(event) {
             event.preventDefault();
             var data = new FormData(this);
@@ -103,7 +141,11 @@ require_once('../config/conect.php');
                 processData: false,
                 contentType: false,
                 success: function(msg) {
-                    alert(msg)
+                    if (msg.trim() == 'Inserido com Sucesso!') {
+                        location.reload();
+                    } else {
+                        alert(msg);
+                    }
                 }
             })
         });
