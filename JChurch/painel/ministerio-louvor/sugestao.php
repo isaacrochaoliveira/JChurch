@@ -51,7 +51,7 @@ if (count($res) > 0) {
                     </td>
                     <?php
                     if ($_SESSION['posto'] == 'Chefe dos Levitas') {
-                        if ($status_text == 'Analisando') {
+                        if ($status_text == 'Em Análise...') {
                     ?>
                             <td>
                                 <button class='btn btn-success' onclick="aprovarSugestao(<?php echo $res[$i]['id_sug']; ?>)" title="Aprovar"><i class="fa-solid fa-square-check"></i></button>
@@ -74,4 +74,6 @@ if (count($res) > 0) {
         </tbody>
     </table>
 <?php
+} else {
+    echo "<p>Não há dados para mostrar</p>";
 }

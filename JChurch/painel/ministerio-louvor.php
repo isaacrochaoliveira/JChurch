@@ -47,9 +47,13 @@ require_once('../config/conect.php');
             <button type="button" class="btn btn-primary py-3 px-5" data-bs-toggle="modal" data-bs-target="#PlayListModal">
                 Músicas na Lista do Ministério <i class="fa-solid fa-music"></i>
             </button>
-            <button type="button" class="btn btn-outline-primary py-3 px-5" data-bs-toggle="modal" data-bs-target="#SugesModal">
-                Músicas na Lista de Sugestão <i class="fa-solid fa-music"></i>
-            </button>
+            <?php
+            if ($_SESSION['posto'] == 'Chefe dos Levitas') {
+                echo "<button type='button' class='btn btn-outline-primary py-3 px-5' data-bs-toggle='modal' data-bs-target='#SugesModal'>
+                Músicas na Lista de Sugestão <i class='fa-solid fa-music'></i>
+            </button>";
+            }
+            ?>
         </div>
     </section>
     <div class="modal fade" id="PlayListModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
