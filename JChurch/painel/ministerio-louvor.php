@@ -173,3 +173,47 @@ require_once('../config/conect.php');
         }
     }
 </script>
+
+<script>
+    function aprovarSugestao(id) {
+        let confirma = confirm("Tem certeza que deseja aprovar essa sugestão?");
+        if (confirma) {
+            $.ajax({
+                url: 'ministerio-louvor/aprovar-sugestao.php',
+                method: 'post',
+                data: {
+                    id_sug: id
+                },
+                success: function(msg) {
+                    if (msg.trim() == 'Aprovado com Sucesso!') {
+                        location.reload();
+                    } else {
+                        alert(msg);
+                    }
+                }
+            })
+        }
+    }
+</script>
+
+<script>
+    function analisarSugestao(id) {
+        let confirma = confirm("Tem certeza que deseja analisar essa sugestão?");
+        if (confirma) {
+            $.ajax({
+                url: 'ministerio-louvor/analisar-sugestao.php',
+                method: 'post',
+                data: {
+                    id_sug: id
+                },
+                success: function(msg) {
+                    if (msg.trim() == 'Em Análise com Sucesso!') {
+                        location.reload();
+                    } else {
+                        alert(msg);
+                    }
+                }
+            })
+        }
+    }
+</script>
