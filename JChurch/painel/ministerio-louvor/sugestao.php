@@ -36,7 +36,7 @@ if (count($res) > 0) {
                     $status_text = 'Aprovado';
                 } elseif ($status_sug == 'Analisando') {
                     $status_sug = 'badge bg-info';
-                    $status_text = 'Analisando';
+                    $status_text = 'Em Análise...';
                 } elseif ($status_sug == 'Rejeitado') {
                     $status_sug = 'badge bg-danger';
                     $status_text = 'Rejeitado';
