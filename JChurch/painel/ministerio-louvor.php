@@ -6,7 +6,9 @@ require_once('../config/conect.php');
     main {
         background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('imagens/fundo_black.jpg') fixed;
         color: white;
-    } #FormSuges input {
+    }
+
+    #FormSuges input {
         width: 50%;
         text-align: center;
         margin: 0 auto;
@@ -14,9 +16,28 @@ require_once('../config/conect.php');
 </style>
 <main class="py-5">
     <section>
-        <h1 class="text-center berkshire f-60px">Integrantes do Ministério:</h1>
-        <div class="integrantes">
-
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Integrantes do Ministério <i class="fa-solid fa-users"></i>
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ministério de Louvor</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h1 class="text-center berkshire f-60px">Integrantes do Ministério:</h1>
+                        <div class="integrantes">
+                
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="d-flex flex-wrap ">
