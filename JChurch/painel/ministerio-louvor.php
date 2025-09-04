@@ -15,33 +15,20 @@ require_once('../config/conect.php');
     }
 </style>
 <main class="py-5">
-    <section>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Integrantes do Ministério <i class="fa-solid fa-users"></i>
-        </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ministério de Louvor</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h1 class="text-center berkshire f-60px">Integrantes do Ministério:</h1>
-                        <div class="integrantes">
-                
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+    <section class="d-flex flex-wrap mb-5">
+        <div class="w-50">
+            <div class="d-flex flex-wrap flex-column">
+                <img src="imagens/concert-7460427_640.jpg" alt="Ministério de Louvor">
+                <div>
+                    <h3>Líder</h3>
+                    <h1 class="berkshire f-60px">Alice Monteiro</h1>
                 </div>
             </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Integrantes do Ministério <i class="fa-solid fa-users"></i>
+            </button>
         </div>
-    </section>
-    <section class="d-flex flex-wrap ">
-        <div class="col-dm-6 mx-auto text-center">
+        <div class="w-50 text-center">
             <h2 class="f-40px">Alguma sugestão de música?</h2>
             <p>Coloque ela aqui, vamos analisar sua sugestão</p>
             <form method="post" class="mb-4" id="FormSuges">
@@ -109,6 +96,26 @@ require_once('../config/conect.php');
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ministério de Louvor</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h1 class="text-center berkshire f-60px">Integrantes do Ministério:</h1>
+                    <div class="integrantes">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
