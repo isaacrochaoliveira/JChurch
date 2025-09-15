@@ -15,20 +15,23 @@ require_once('../config/conect.php');
     }
 </style>
 <main class="py-5">
-    <section class="d-flex flex-wrap mb-5">
-        <div class="w-50">
-            <div class="d-flex flex-wrap flex-column">
-                <img src="imagens/concert-7460427_640.jpg" alt="Ministério de Louvor">
-                <div>
-                    <h3>Líder</h3>
-                    <h1 class="berkshire f-60px">Alice Monteiro</h1>
-                </div>
+    <section class="d-flex flex-wrap mb-5 justify-content-center align-items-center">
+        <div class="col-md-6 text-center mb-4">
+            <img src="imagens/concert-7460427_640.jpg" alt="Ministério de Louvor" class="img-fluid circular mb-3" style="width: 300px; height: 300px; object-fit: cover; border: 5px solid white; border-radius: 50%;">
+            <div>
+                <h5><u>LÍDER</u></h5>
+                <h1 class="berkshire f-60px">Alice Monteiro</h1>
             </div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Integrantes do Ministério <i class="fa-solid fa-users"></i>
             </button>
+            <a href="http://localhost/projects/JChurch/JChurch/painel/index.php?pag=publicacoes&id_membro=3">
+                <button class="btn btn-outline-primary">
+                    Visualizar Perfil <i class="fa-solid fa-user"></i>
+                </button>
+            </a>
         </div>
-        <div class="w-50 text-center">
+        <div class="col-md-6 text-center">
             <h2 class="f-40px">Alguma sugestão de música?</h2>
             <p>Coloque ela aqui, vamos analisar sua sugestão</p>
             <form method="post" class="mb-4" id="FormSuges">
